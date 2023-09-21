@@ -70,7 +70,7 @@ export function Serve({ onNext }: ModeProp) {
           disabled={info.servingTeam === -1}
           onClick={onNext}
         >
-          Confirm
+          Next
         </button>
       </div>
     </div>

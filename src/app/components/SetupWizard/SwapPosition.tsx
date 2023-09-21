@@ -43,7 +43,7 @@ export function SwapPosition({ onNext }: ModeProp) {
             onNext?.();
           }}
         >
-          Next
+          Confirm
         </button>
       </div>
     </div>

@@ -24,10 +24,11 @@ The Badminton Umpire Score Counter is a web application designed to assist in ke
 ## Usage
 
 1. Visit the Badminton Umpire Score Counter website.
-2. Enter the names of the teams or players.
-3. Start the game and increment scores as points are earned.
-4. The application will automatically update and display the current score.
-5. Finish the game and determine the winner.
+2. Select the game mode
+3. Enter the players' name
+4. Select the serving team
+5. Swap the player position if necessary
+6. Start Counting the point
 
 ## Installation
 
@@ -46,8 +47,3 @@ If you would like to contribute to the development of this project, please follo
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- Special thanks to the Badminton community for their input and feedback.
-- Icons used in this application are provided by [FontAwesome](https://fontawesome.com/).
