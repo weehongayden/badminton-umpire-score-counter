@@ -5,7 +5,7 @@ import { isEmpty, trim } from "lodash";
 import { IBM_Plex_Mono } from "next/font/google";
 import { useRecoilValue } from "recoil";
 
-const ibmPlexMono = IBM_Plex_Mono({
+export const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
   preload: false,
 });

@@ -1,13 +1,17 @@
+import { ibmPlexMono } from "@/app/components/Court";
 import { TeamProp } from "@/app/components/SetupWizard/Player";
 import { Game } from "@/app/core/game";
 import { defaultValue, gameInfo } from "@/app/states/game";
 import { logInfo } from "@/app/states/log";
 import { classNames } from "@/app/utils";
+import { isEmpty } from "lodash";
 import { useRecoilState } from "recoil";
 
 export function Panel() {
   const [info, setInfo] = useRecoilState(gameInfo);
   const [logs, setLogs] = useRecoilState(logInfo);
+
+  console.log(logs.logs.length);
 
   const game = new Game(info);
 
@@ -45,21 +49,27 @@ export function Panel() {
   return (
     info.isSetupComplete && (
       <div className="flex flex-col gap-y-5">
-        <div className="text-center h-12">
-          {info.isEnd ? (
-            <p>
-              Game End
-              <br />
-              <span className="font-bold">
-                {info.teams[info.servingTeam].name} win
-              </span>
-            </p>
-          ) : (
-            <>
-              {info.isServiceOver && <p>Service Over</p>}
-              {<p>{info.message}</p>}
-            </>
-          )}
+        <div className="text-center border rounded-b-sm">
+          <div className="p-1 bg-indigo-500 rounded-t-sm">Announcer</div>
+          <div className="flex flex-col p-1 box-content justify-center items-center h-12">
+            {info.isEnd ? (
+              <>
+                <p className="text-xs">Game End</p>
+                <p className="font-bold">
+                  {info.teams[info.servingTeam].name} win
+                </p>
+              </>
+            ) : (
+              <>
+                {info.isServiceOver && <p className="text-xs">Service Over</p>}
+                {
+                  <p className={ibmPlexMono.className}>
+                    {isEmpty(info.message) ? "Game start" : info.message}
+                  </p>
+                }
+              </>
+            )}
+          </div>
         </div>
         <h2 className="font-semibold text-center text-xl">Panel</h2>
         <div className="grid grid-cols-2 gap-x-5 gap-y-10">
@@ -85,10 +95,10 @@ export function Panel() {
         <button
           type="button"
           className={`${classNames(
-            info.isEnd ? "bg-red-200" : "bg-red-600 ",
+            info.isEnd || logs.logs.length === 0 ? "bg-red-200" : "bg-red-600 ",
             "w-full rounded-md border px-3 py-2 text-sm text-white font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           )}`}
-          disabled={info.isEnd}
+          disabled={logs.logs.length === 0 || info.isEnd}
           onClick={revert}
         >
           Revert
