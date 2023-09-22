@@ -50,8 +50,10 @@ export function Panel() {
     info.isSetupComplete && (
       <div className="flex flex-col gap-y-5">
         <div className="text-center border rounded-b-sm">
-          <div className="p-1 bg-indigo-500 rounded-t-sm">Announcer</div>
-          <div className="flex flex-col p-1 box-content justify-center items-center h-12">
+          <div className="p-1 text-white bg-indigo-500 rounded-t-sm">
+            Announcer
+          </div>
+          <div className="flex flex-col p-1 box-content justify-center items-center h-18">
             {info.isEnd ? (
               <>
                 <p className="text-xs">Game End</p>
@@ -62,11 +64,18 @@ export function Panel() {
             ) : (
               <>
                 {info.isServiceOver && <p className="text-xs">Service Over</p>}
-                {
-                  <p className={ibmPlexMono.className}>
-                    {isEmpty(info.message) ? "Game start" : info.message}
-                  </p>
-                }
+                {isEmpty(info.message)
+                  ? "Game start"
+                  : info.message.split("\n").map((word, index) => (
+                      <p
+                        key={index}
+                        className={`${ibmPlexMono.className} ${
+                          index === 1 ? "text-xs" : ""
+                        }`}
+                      >
+                        {word}
+                      </p>
+                    ))}
               </>
             )}
           </div>

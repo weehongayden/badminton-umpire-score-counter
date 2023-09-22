@@ -89,6 +89,11 @@ export class Game {
     this.convertToEditableObject();
 
     const { teams, servingTeam } = this.info;
+    const isAll = teams[0].score === teams[1].score;
+    const isLove =
+      teams[0].score.toString().endsWith("0") &&
+      teams[1].score.toString().endsWith("0");
+
     this.info.isServiceOver = teamId !== servingTeam;
 
     if (teamId === 0) {
@@ -96,6 +101,14 @@ export class Game {
     } else {
       this.info.message = `${teams[1].score} - ${teams[0].score}`;
     }
+    this.info.message = this.info.message.concat(
+      "\n" +
+        (isLove
+          ? teams[0].score + " Love All"
+          : isAll
+          ? teams[0].score + " All"
+          : "")
+    );
 
     return this.info;
   }
