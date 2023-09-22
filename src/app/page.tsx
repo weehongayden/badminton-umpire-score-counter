@@ -7,7 +7,7 @@ import { RecoilRoot } from "recoil";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen h-full flex-col p-10 lg:p-24">
+    <main className="flex mx-auto w-full min-h-screen h-full flex-col p-10 md:w-fit lg:p-24">
       <RecoilRoot>
         <Court />
         <div className="my-3"></div>

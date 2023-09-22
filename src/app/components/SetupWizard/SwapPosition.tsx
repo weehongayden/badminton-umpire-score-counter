@@ -20,7 +20,7 @@ export function SwapPosition({ onNext }: ModeProp) {
       </h2>
       <div className="flex gap-x-5">
         {map(info.teams, (item, index) => (
-          <div key={index}>
+          <div className="flex-1" key={index}>
             <h3 className="font-semibold text-center text-lg mb-3">
               {item.name}
             </h3>
