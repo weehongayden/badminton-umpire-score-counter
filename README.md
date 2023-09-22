@@ -11,6 +11,7 @@ The Badminton Umpire Score Counter is a web application designed to assist in ke
 ## Features
 
 - Easily increment scores for each team or player.
+- Support revert score based on the history.
 - Clear and intuitive user interface for quick scorekeeping.
 - Real-time updates to display the current score.
 - Customizable team or player names for easy identification.
@@ -18,7 +19,6 @@ The Badminton Umpire Score Counter is a web application designed to assist in ke
 
 ## Upcoming Features
 
-- Decrement scores for each team or player.
 - Support for single badminton matches.
 
 ## Usage

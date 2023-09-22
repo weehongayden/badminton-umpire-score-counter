@@ -38,6 +38,10 @@ export function Player({ onNext }: ModeProp) {
     }
   }, [info.mode]);
 
+  useEffect(() => {
+    setIsDisabled(checkIsAllFilled);
+  }, [info.teams]);
+
   return (
     <div>
       <h2 className="font-semibold text-center text-xl mb-5">Player Details</h2>
@@ -68,7 +72,6 @@ export function Player({ onNext }: ModeProp) {
                   className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   placeholder="Jane Smith"
                   onChange={(e) => {
-                    setIsDisabled(checkIsAllFilled);
                     setInfo(
                       game.setPlayerName(teamIndex, playerIndex, e.target.value)
                     );
